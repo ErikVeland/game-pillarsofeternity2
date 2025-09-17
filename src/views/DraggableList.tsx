@@ -117,8 +117,8 @@ const entryTarget: DropTargetSpec<IItemProps> = {
 };
 
 const Draggable = DropTarget(DND_TYPE, entryTarget, collectDrop)(
-    DragSource(DND_TYPE, entrySource, collectDrag)(
-      DraggableItem)) as React.ComponentClass<IItemBaseProps>;
+  DragSource(DND_TYPE, entrySource, collectDrag)(
+    DraggableItem)) as React.ComponentClass<IItemBaseProps>;
 
 interface IBaseProps {
   id: string;

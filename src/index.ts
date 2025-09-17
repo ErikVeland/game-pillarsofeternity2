@@ -8,7 +8,7 @@ import * as path from 'path';
 import { fs, log, selectors, types, util } from 'vortex-api';
 
 const poe2LocalLowPath = path.resolve(util.getVortexPath('appData'),
-  '..', 'LocalLow', 'Obsidian Entertainment', 'Pillars of Eternity II');
+                                      '..', 'LocalLow', 'Obsidian Entertainment', 'Pillars of Eternity II');
 
 const tools = [];
 
@@ -91,20 +91,20 @@ function writeModConfigFile(): Promise<void> {
   };
   return fs.ensureFileAsync(modConfig())
     .then(() => fs.writeFileAsync(modConfig(),
-      JSON.stringify(data, undefined, 2), { encoding: 'utf-8' }));
+                                  JSON.stringify(data, undefined, 2), { encoding: 'utf-8' }));
 }
 
 function requiresLauncher(gamePath: string) {
   return (gamePath.toLowerCase().includes(MODIFIABLE_WIN_APPS))
     ? Promise.resolve({
-        launcher: 'xbox',
-        addInfo: {
-          appId: MS_ID,
-          parameters: [
-            { appExecName: 'App' },
-          ],
-        }
-      })
+      launcher: 'xbox',
+      addInfo: {
+        appId: MS_ID,
+        parameters: [
+          { appExecName: 'App' },
+        ],
+      }
+    })
     : Promise.resolve(undefined);
 }
 
@@ -164,7 +164,7 @@ function init(context: types.IExtensionContext) {
                                // tslint:disable-next-line:max-line-length
                                + '"C:\\Users\\{YOUR_USERNAME}\\AppData\\LocalLow\\Obsidian Entertainment\\Pillars of Eternity II\\modconfig.json"';
             context.api.showErrorNotification('Invalid modconfig.json file',
-            errorMessage, { allowReport: false });
+                                              errorMessage, { allowReport: false });
           })
           .catch(err => {
             context.api.showErrorNotification('Failed to update modorder', err);
